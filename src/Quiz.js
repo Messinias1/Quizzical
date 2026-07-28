@@ -1,5 +1,5 @@
 import React from "react";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { KEY } from "./api.js";
 
 import { decode } from 'html-entities';
@@ -10,11 +10,7 @@ export default function Quiz() {
     const [showResults, setShowResults] = useState(false);
     const [score, setScore] = useState(0);
 
-    useEffect(() => {
-        fetchQuestions()
-    }, []);
-
-    function fetchQuestions() {
+    const fetchQuestions = useCallback(() =>{
         fetch(KEY)
             .then(res => res.json())
             .then(json => {
@@ -28,7 +24,11 @@ export default function Quiz() {
             setData({ ...json, results });
             })
             .catch(err => console.error(err));
-    }
+    }, [])
+
+    useEffect(() => {
+        fetchQuestions()
+    }, [fetchQuestions]);
 
     function shuffleArray(array) {
         const shuffled = [...array]; 
