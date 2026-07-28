@@ -1,0 +1,1 @@
+export const KEY = "https://opentdb.com/api.php?amount=5"
