@@ -5,8 +5,7 @@ html, body {
 
 body {
   position: relative;
-  overflow: hidden; /* clips the blobs so they don't create scrollbars */
-  background-color: #f8fafc; /* the light gray background */
+  background-color: #f8fafc; 
   min-height: 100vh;
 }
 
@@ -23,7 +22,6 @@ body::before {
   z-index: -1;
 }
 
-/* Blue blob - bottom left */
 body::after {
   content: "";
   position: fixed;
