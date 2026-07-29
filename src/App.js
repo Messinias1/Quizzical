@@ -16,7 +16,7 @@ export default function App() {
       {started ? <Quiz /> : (
         <div className="App">
           <h1 className="quizzical-title">Quizzical</h1>
-          <p className="description">Some description if needed</p>
+          <p className="description">Click the button below to test your trivia skills</p>
           <button onClick={handleStartClick} className="start-quiz-button">Start quiz</button>
         </div>
       )}
